@@ -1,0 +1,18 @@
+<div class="mainContainer">
+    <div class="info">
+        <span class="player" [ngClass]="{'X':player == 'X', 'O': player == 'O'}">YOU: {{playerScore}}</span>
+        <span class="gameErg">{{gameErg}}</span>
+        <span class="player" [ngClass]="{'O':player == 'X', 'X': player == 'O'}">AI: {{aiScore}}</span>
+    </div>
+
+    <div class="gridContainer">
+        <div class="feld" *ngFor="let feld of felder" (click)="setFeld(feld)" [@feld]="feld.state" [ngClass]="{'feld:hover':!gameOver}">
+            <span class="feldValue" >{{feld.value}}</span>
+        </div>
+    </div>
+    <div class="buttonContainer">
+        <button class="btn-back" (click)="back()">Back</button>
+        <button class="btn-reset" (click)="reset()">Reset</button>
+    </div>
+
+</div>

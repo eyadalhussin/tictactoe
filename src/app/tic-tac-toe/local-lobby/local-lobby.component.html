@@ -1,0 +1,23 @@
+<div class="loadingScreen" *ngIf="isLoading">
+    <span class="loadingTextX">X</span>
+    <span class="loadingTextO">O</span>
+</div>
+
+<div class="mainContainer" *ngIf="!isLoading">
+<div class="topContainer">
+    <p class="headline">Tic Tac Toe</p>
+    <p class="headline" *ngIf="selected == ''">Please Select X or O</p>
+</div>
+
+<div class="midContainer">
+    <div class="players">
+        <button class="playerButton" [ngClass]="{'X':selected === 'X'}" (click)="setPlayer('X')">X</button>
+        <button class="playerButton" [ngClass]="{'O':selected === 'O'}" (click)="setPlayer('O')">O</button>
+    </div>
+    <div class="buttonContainer">
+        <button class="screenButton easy" [disabled]="!playerSet" (click)="setDiff('Easy')">Easy</button>
+        <button class="screenButton medium" [disabled]="!playerSet" (click)="setDiff('Medium')">Medium</button>
+        <button class="screenButton impossible" [disabled]="!playerSet" (click)="setDiff('Impossible')">Impossible</button>
+    </div>
+</div>
+</div>
